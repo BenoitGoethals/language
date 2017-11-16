@@ -2,16 +2,11 @@ package be.dragon.language.services;
 
 import be.dragon.language.model.Quest;
 import be.dragon.language.model.Session;
-
 import be.dragon.language.util.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -24,6 +19,16 @@ public class SessionServiceImpl implements SessionService {
 
     @Autowired
     private QuestService questService;
+
+    public SessionServiceImpl(SessionFactory sessionFactory, QuestService questService) {
+        this.sessionFactory = sessionFactory;
+        this.questService = questService;
+    }
+
+    public SessionServiceImpl() {
+
+    }
+
 
     @Override
     public Session getSession(int quests) {

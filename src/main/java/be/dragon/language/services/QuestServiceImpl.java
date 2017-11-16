@@ -5,6 +5,9 @@ import be.dragon.language.repositorys.QuestRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -56,5 +59,29 @@ public class QuestServiceImpl implements QuestService {
     @Override
     public Quest getQuest(Long i) {
         return questRepository.findOne(i);
+    }
+
+    @Bean
+    @Override
+    public List<Quest> quests(){
+        return questRepository.findAll();
+    }
+
+    @Override
+    public Long countQuest() {
+        return questRepository.count();
+    }
+
+    @Override
+    public Quest random() {
+        Long qty=questRepository.count();
+
+        int idx = (int)(Math.random() * qty);
+        Page<Quest> questionPage = questRepository.findAll(new PageRequest(idx, 1));
+        Quest q = null;
+        if (questionPage.hasContent()) {
+            q = questionPage.getContent().get(0);
+        }
+        return q;
     }
 }

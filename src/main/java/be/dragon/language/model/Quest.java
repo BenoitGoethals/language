@@ -5,7 +5,8 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Questions")
-public class Quest {
+public class Quest implements Comparable<Quest> {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -78,6 +79,16 @@ public class Quest {
 
 
     @Override
+    public String toString() {
+        return "Quest{" +
+                "id=" + id +
+                ", question='" + question + '\'' +
+                ", answer='" + answer + '\'' +
+                ", category=" + category +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -93,14 +104,18 @@ public class Quest {
     }
 
 
-
     @Override
-    public String toString() {
-        return "Quest{" +
-                "id=" + id +
-                ", question='" + question + '\'' +
-                ", answer='" + answer + '\'' +
-                ", category=" + category +
-                '}';
+    public int compareTo(Quest o) {
+
+        if(this.id==o.id){
+            return 0;
+        }
+        else if(this.id < o.id){
+            return 1;
+        }
+        else{
+            return -1;
+        }
     }
+
 }

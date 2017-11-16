@@ -13,6 +13,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.TransactionSystemException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +43,7 @@ public class QuestServiceTest {
     @Test
     public void addQuest() throws Exception {
 
-        Quest quest=new Quest("hallo","bla",null, Category.sentende);
+        Quest quest=new Quest("hallo","bla",null, Category.adjectief);
        Quest quest1= questService.addQuest(quest);
         assertThat(quest1.getId(),is(notNullValue()));
 
@@ -50,11 +51,32 @@ public class QuestServiceTest {
 
     @Test
     public void deleteQuest() throws Exception {
-        Quest quest=new Quest("hallo","bla",null, Category.sentende);
+        Quest quest=new Quest("hallo","bla",null, Category.adjectief);
         Quest quest1= questService.addQuest(quest);
         assertThat(quest1,is(notNullValue()));
         questService.deleteQuest(quest1);
         assertThat(questService.getQuest(Long.valueOf(1)),is(nullValue()));
+
+    }
+
+    @Test(expected = TransactionSystemException.class)
+    public void addBad() throws Exception {
+
+        Quest quest=new Quest("hallo",null,null, Category.adjectief);
+        Quest quest1= questService.addQuest(quest);
+        assertThat(quest1.getId(),is(notNullValue()));
+
+    }
+
+
+
+    @Test(expected = TransactionSystemException.class)
+    public void addDoubleQuest() throws Exception {
+
+        Quest quest=new Quest("hallo",null,null, Category.adjectief);
+        Quest quest1= questService.addQuest(quest);
+        Quest quest2= questService.addQuest(quest);
+        assertThat(quest1.getId(),is(notNullValue()));
 
     }
 
@@ -63,7 +85,7 @@ public class QuestServiceTest {
         List<Quest> questList=new ArrayList<>();
         Quest quest=null;
         for (int i = 0; i < 100; i++) {
-             quest=new Quest("hallo"+i,"bla"+i,null, Category.sentende);
+             quest=new Quest("hallo"+i,"bla"+i,null, Category.adjectief);
 
             Quest quest1= questService.addQuest(quest);
             questList.add(quest1);
@@ -75,7 +97,7 @@ public class QuestServiceTest {
     @Test
     public void updateQuest() throws Exception {
 
-        Quest quest=new Quest("hallo","bla",null, Category.sentende);
+        Quest quest=new Quest("hallo","bla",null, Category.adjectief);
         Quest quest1= questService.addQuest(quest);
         assertThat(quest1.getId(),is(notNullValue()));
         quest1.setAnswer("ok");

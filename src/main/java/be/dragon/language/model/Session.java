@@ -25,8 +25,8 @@ public class Session {
         return answers.stream().filter(x->x.pass()).collect(Collectors.toList());
     }
 
-    public int getPrecentage(){
-        return getPass().size()/answers.size()*100;
+    public double getPrecentage(){
+        return ((double)getPass().size()/(double)answers.size())*100.0;
     }
 
     public int countAnswer(){

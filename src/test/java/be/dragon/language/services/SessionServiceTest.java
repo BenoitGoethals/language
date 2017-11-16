@@ -1,5 +1,6 @@
 package be.dragon.language.services;
 
+import be.dragon.language.model.Answer;
 import be.dragon.language.model.Category;
 import be.dragon.language.model.Quest;
 import be.dragon.language.model.Session;
@@ -13,6 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -55,17 +57,24 @@ public class SessionServiceTest {
     public void getSession() throws Exception {
         final Session session = sessionService.getSession(100);
         assertThat(session.getAnswers(),hasSize(100));
-        assertThat(session.getPrecentage(),is(0));
+        assertThat(session.getPrecentage(),is(0.0));
     }
 
     @Test
     public void getSessionDoTest() throws Exception {
         final Session session = sessionService.getSession(60);
+        assertThat(session.getAnswers(),hasSize(60));
+      //  session.getAnswers().stream().filter(x -> x.getQuest().getId() < 20).forEach(x->x.setResponse(x.getQuest().getAnswer()));
+        Iterator<Answer> iterator= session.getAnswers().iterator();
+        for (int i = 0; i <20 ; i++) {
+            Answer next = iterator.next();
+            next.setResponse(next.getQuest().getAnswer());
 
-        session.getAnswers().stream().filter(x -> x.getQuest().getId() < 20).forEach(x->x.setResponse(x.getQuest().getAnswer()));
-        int res=session.getPrecentage();
-//        assertThat(res,is(20));
-        assertThat(session.getBad().size(),is(40));
+        }
+
+        double res=session.getPrecentage();
+       assertThat(res,is(33.33333333333333));
+       assertThat(session.getBad().size(),is(40));
         assertThat(session.getPass().size(),is(20));
     }
 }

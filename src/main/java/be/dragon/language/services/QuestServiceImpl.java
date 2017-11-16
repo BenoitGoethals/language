@@ -61,7 +61,7 @@ public class QuestServiceImpl implements QuestService {
         return questRepository.findOne(i);
     }
 
-    @Bean
+
     @Override
     public List<Quest> quests(){
         return questRepository.findAll();

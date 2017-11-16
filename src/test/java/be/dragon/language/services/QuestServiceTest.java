@@ -94,6 +94,7 @@ public class QuestServiceTest {
         assertThat(questService.allQuests(),hasSize(100));
     }
 
+
     @Test
     public void updateQuest() throws Exception {
 

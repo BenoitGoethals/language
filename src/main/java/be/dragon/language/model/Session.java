@@ -1,12 +1,15 @@
 package be.dragon.language.model;
 
-import org.springframework.stereotype.Component;
-
-import java.util.*;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 
 public class Session {
+    public Session() {
+    }
+
     private Set<Answer> answers=new TreeSet<>();
     public Session(Set<Quest> quests) {
         quests.stream().forEach(x -> answers.add(new Answer(x)));

@@ -1,4 +1,4 @@
-package be.dragon.language.util;
+package be.dragon.language.unitTests.util;
 
 public class CustomErrorType {
 

@@ -1,4 +1,4 @@
-package be.dragon.language.util;
+package be.dragon.language.unitTests.util;
 
 import be.dragon.language.model.Category;
 import be.dragon.language.model.Quest;
@@ -7,11 +7,8 @@ import org.apache.commons.lang3.RandomUtils;
 import org.hamcrest.beans.HasPropertyWithValue;
 import org.hamcrest.core.Every;
 import org.hamcrest.core.Is;
-import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 

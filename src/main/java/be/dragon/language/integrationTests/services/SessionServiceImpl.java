@@ -1,8 +1,8 @@
-package be.dragon.language.services;
+package be.dragon.language.integrationTests.services;
 
 import be.dragon.language.model.Quest;
 import be.dragon.language.model.Session;
-import be.dragon.language.util.SessionFactory;
+import be.dragon.language.unitTests.util.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

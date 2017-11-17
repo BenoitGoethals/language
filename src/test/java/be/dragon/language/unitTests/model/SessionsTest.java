@@ -1,5 +1,8 @@
-package be.dragon.language.model;
+package be.dragon.language.unitTests.model;
 
+import be.dragon.language.model.Category;
+import be.dragon.language.model.Quest;
+import be.dragon.language.model.Session;
 import org.apache.commons.lang3.RandomUtils;
 import org.hamcrest.beans.HasPropertyWithValue;
 import org.hamcrest.core.Every;
@@ -8,15 +11,12 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 
-import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.IsNull.notNullValue;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class SessionsTest {
     @Before

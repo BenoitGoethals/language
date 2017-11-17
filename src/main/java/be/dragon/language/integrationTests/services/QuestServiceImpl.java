@@ -1,11 +1,10 @@
-package be.dragon.language.services;
+package be.dragon.language.integrationTests.services;
 
 import be.dragon.language.model.Quest;
 import be.dragon.language.repositorys.QuestRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -42,7 +41,7 @@ public class QuestServiceImpl implements QuestService {
 
     @Override
     public List<Quest> allQuests() {
-        return (List<Quest>) questRepository.findAll();
+        return questRepository.findAll();
     }
 
     @Override

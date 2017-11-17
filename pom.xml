@@ -111,9 +111,9 @@
 
 	<developers>
 		<developer>
-			<id>duke</id>
-			<name>Duke Java</name>
-			<email>duke@wakaleo.com</email>
+            <id>benoit</id>
+            <name>Goethals Benoit</name>
+            <email>benoit.goethals@gmail.com</email>
 			<roles>
 				<role>Project Manager</role>
 				<role>Architect</role>

@@ -1,4 +1,4 @@
-package be.dragon.language.integrationTests.services;
+package be.dragon.language.services;
 
 import be.dragon.language.model.Answer;
 import be.dragon.language.model.Category;

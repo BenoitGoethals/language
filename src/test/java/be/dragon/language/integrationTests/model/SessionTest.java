@@ -1,11 +1,11 @@
 package be.dragon.language.integrationTests.model;
 
-import be.dragon.language.integrationTests.services.QuestService;
-import be.dragon.language.integrationTests.services.SessionService;
-import be.dragon.language.integrationTests.services.SessionServiceImpl;
 import be.dragon.language.model.Category;
 import be.dragon.language.model.Quest;
 import be.dragon.language.model.Session;
+import be.dragon.language.services.QuestService;
+import be.dragon.language.services.SessionService;
+import be.dragon.language.services.SessionServiceImpl;
 import be.dragon.language.unitTests.util.SessionFactory;
 import org.junit.Before;
 import org.junit.Test;

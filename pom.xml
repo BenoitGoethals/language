@@ -80,11 +80,7 @@
 			<version>3.5</version>
 
 		</dependency>
-		<dependency>
-    <groupId>org.jenkins-ci.plugins</groupId>
-    <artifactId>view26</artifactId>
-    <version>1.0.4</version>
-</dependency>
+		</dependencies>
 
 	
 <build>

@@ -21,6 +21,7 @@ import static org.junit.Assert.assertThat;
 @RunWith(SpringRunner.class)
 
 @SpringBootTest
+
 public class SessionServiceTest {
 
     @Autowired

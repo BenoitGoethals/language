@@ -10,6 +10,7 @@ datasource:
     username: SA
     password:
     driverClassName: org.h2.Driver
+    defaultAutoCommit: false
     defaultSchema:
     maxPoolSize: 10
     DB_CLOSE_ON_EXIT=: FALSE

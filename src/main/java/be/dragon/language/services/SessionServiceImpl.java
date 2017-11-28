@@ -5,13 +5,14 @@ import be.dragon.language.model.Session;
 import be.dragon.language.unitTests.util.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 import java.util.TreeSet;
 
 @Service(value = "sessionService")
-@Transactional
+@Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
 public class SessionServiceImpl implements SessionService {
 
     @Autowired

@@ -8,12 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service("questService")
-@Transactional
+@Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
 public class QuestServiceImpl implements QuestService {
 
     public static final Logger logger = LoggerFactory.getLogger(QuestServiceImpl.class);

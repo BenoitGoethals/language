@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.TransactionSystemException;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +21,7 @@ import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
-
+@Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
 @SpringBootTest
 public class QuestServiceTest {
 

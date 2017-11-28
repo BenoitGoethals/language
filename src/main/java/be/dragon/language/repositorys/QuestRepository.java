@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Repository
-@Transactional(propagation = Propagation.SUPPORTS)
+@Transactional(propagation = Propagation.SUPPORTS, rollbackFor = Exception.class)
 public interface QuestRepository extends JpaRepository<Quest,Long> {
 
     /**

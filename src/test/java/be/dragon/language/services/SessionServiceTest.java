@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -52,6 +53,7 @@ public class SessionServiceTest {
     }
 
     @Test
+    @Rollback(true)
     public void getSession() throws Exception {
         final Session session = sessionService.getSession(100);
         assertThat(session.getAnswers(),hasSize(100));
@@ -59,6 +61,7 @@ public class SessionServiceTest {
     }
 
     @Test
+    @Rollback(true)
     public void getSessionDoTest() throws Exception {
         final Session session = sessionService.getSession(60);
         assertThat(session.getAnswers(),hasSize(60));
